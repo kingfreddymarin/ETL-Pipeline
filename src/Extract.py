@@ -47,8 +47,9 @@ def extract(SSMS_DB, SSMS_PW, SSMS_SERVER, SSMS_USER,
                     df.loc[cond, col] = 'NA'
                 # FROM None to 0
                 if df[col].dtypes == int:
-                    cond = df[col] == None
-                    df.loc[cond, col] = 0
+                    # cond = df[col] == None
+                    # df.loc[cond, col] = 0
+                    df[col].fillna(value=0)
             # Loading process
             load(df, table[0], PSQL_DB, PSQL_PW, PSQL_SERVER, PSQL_USER)
             print(df.info())
