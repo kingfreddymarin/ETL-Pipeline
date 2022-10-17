@@ -1,4 +1,4 @@
-# ETL
+# ETL package
 
 ## To run the ETL package, you need to:
 - Install python
