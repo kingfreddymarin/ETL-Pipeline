@@ -1,32 +1,35 @@
-from cgitb import text
-from sqlite3 import Row
+from asyncio import tasks
 import tkinter
 from Extract import extract
 from tkinter import *
+from tkinter.ttk import *
+import time
+
+
+def submit():
+    SSMS_SERVER = entry1.get()
+    SSMS_DB = entry2.get()
+    SSMS_USER = entry3.get()
+    SSMS_PW = entry4.get()
+    PSQL_SERVER = entry5.get()
+    PSQL_DB = entry6.get()
+    PSQL_USER = entry7.get()
+    PSQL_PW = entry8.get()
+
+    try:
+        extract(SSMS_DB, SSMS_PW, SSMS_SERVER, SSMS_USER,
+                PSQL_DB, PSQL_PW, PSQL_SERVER, PSQL_USER)
+    except Exception as e:
+        print("Error: " + str(e))
 
 
 if __name__ == '__main__':
-    def submit():
-        SSMS_SERVER = entry1.get()
-        SSMS_DB = entry2.get()
-        SSMS_USER = entry3.get()
-        SSMS_PW = entry4.get()
-        PSQL_SERVER = entry5.get()
-        PSQL_DB = entry6.get()
-        PSQL_USER = entry7.get()
-        PSQL_PW = entry8.get()
-        try:
-            extract(SSMS_DB, SSMS_PW, SSMS_SERVER, SSMS_USER,
-                    PSQL_DB, PSQL_PW, PSQL_SERVER, PSQL_USER)
-        except Exception as e:
-            errorWindow = Tk()
-            errorWindow.mainloop()
-            print("Error: " + str(e))
 
     window = Tk()
+    window.title('Paquete ETL')
 
     # SUBMIT BUTTON
-    submit = Button(window, text="ETL!", command=submit)
+    submit = Button(window, text="Let's start", command=submit)
 
     # EVERY ENTRY
     entry1 = Entry()
@@ -94,4 +97,5 @@ if __name__ == '__main__':
     l8.grid(row=7, column=1)
     entry8.grid(row=8, column=1)
     submit.grid(row=9, column=1)
+
     window.mainloop()

@@ -14,8 +14,8 @@ def extract(SSMS_DB, SSMS_PW, SSMS_SERVER, SSMS_USER,
         # Verifying all the tables we want to use in the package
         crs.execute(f"""
             select t.name as table_name
-            from sys.tables t where t.name in ('FACT_MXvideos', 'DIM_Comments', 'DIM_Dates', 'DIM_Ratings', 'DIM_VideoStatus')
-        """)
+            from sys.tables t 
+        """)  # //LEGACY -> where t.name in ('FACT_MXvideos', 'DIM_Comments', 'DIM_Dates', 'DIM_Ratings', 'DIM_VideoStatus')
         # Fetching tables to be modified
         src_tables = crs.fetchall()
         # Looping through the tables in src_tables in order to clean and load data
@@ -51,7 +51,9 @@ def extract(SSMS_DB, SSMS_PW, SSMS_SERVER, SSMS_USER,
                     # df.loc[cond, col] = 0
                     df[col].fillna(value=0)
             # Loading process
-            load(df, table[0], PSQL_DB, PSQL_PW, PSQL_SERVER, PSQL_USER)
+            load(df, table[0], PSQL_DB, PSQL_PW,
+                 PSQL_SERVER, PSQL_USER)
+
             print(df.info())
     except Exception as e:
         print(f'Error...\n datos: '+str(e))

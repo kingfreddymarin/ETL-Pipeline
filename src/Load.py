@@ -1,5 +1,6 @@
 import pandas as pd
 from sqlalchemy import create_engine
+import time
 
 
 def load(df, table, PSQL_DB, PSQL_PW, PSQL_SERVER, PSQL_USER):
