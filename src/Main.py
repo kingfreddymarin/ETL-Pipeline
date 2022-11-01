@@ -3,7 +3,6 @@ import tkinter
 from Extract import extract
 from tkinter import *
 from tkinter.ttk import *
-import time
 
 
 def submit():
@@ -17,8 +16,12 @@ def submit():
     PSQL_PW = entry8.get()
 
     try:
-        extract(SSMS_DB, SSMS_PW, SSMS_SERVER, SSMS_USER,
-                PSQL_DB, PSQL_PW, PSQL_SERVER, PSQL_USER)
+        if (SSMS_DB == '' or SSMS_PW == '' or SSMS_SERVER == '' or SSMS_USER == '' or PSQL_DB == '' or PSQL_PW == '' or PSQL_SERVER == '' or PSQL_USER == ''):
+            print("There shouldn't be any blanks")
+        else:
+            extract(SSMS_DB, SSMS_PW, SSMS_SERVER, SSMS_USER,
+                    PSQL_DB, PSQL_PW, PSQL_SERVER, PSQL_USER)
+
     except Exception as e:
         print("Error: " + str(e))
 
