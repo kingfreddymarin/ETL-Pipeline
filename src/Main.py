@@ -1,5 +1,3 @@
-from asyncio import tasks
-import tkinter
 from Extract import extract
 from tkinter import *
 from tkinter.ttk import *
