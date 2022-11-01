@@ -36,48 +36,48 @@ if __name__ == '__main__':
 
     # EVERY ENTRY
     entry1 = Entry()
-    entry1.config(font=('sans', 16))
+    entry1.config(font=('sans', 17))
     entry1.insert(0, 'localhost')
 
     entry2 = Entry()
-    entry2.config(font=('sans', 16))
+    entry2.config(font=('sans', 17))
 
     entry3 = Entry()
-    entry3.config(font=('sans', 16))
+    entry3.config(font=('sans', 17))
 
     entry4 = Entry()
-    entry4.config(font=('sans', 16))
+    entry4.config(font=('sans', 17))
     entry4.config(show='*')
 
     entry5 = Entry()
-    entry5.config(font=('sans', 16))
+    entry5.config(font=('sans', 17))
     entry5.insert(0, 'localhost')
 
     entry6 = Entry()
-    entry6.config(font=('sans', 16))
+    entry6.config(font=('sans', 17))
 
     entry7 = Entry()
-    entry7.config(font=('sans', 16))
+    entry7.config(font=('sans', 17))
 
     entry8 = Entry()
-    entry8.config(font=('sans', 16))
+    entry8.config(font=('sans', 17))
     entry8.config(show='*')
 
     # GUI LABELS
-    lssms = tkinter.Label(text="SSMS DATA")
+    lssms = Label(text="SSMS DATA")
     lssms.config(font=('sans', 20))
-    l1 = tkinter.Label(text="Ingrese el servidor de origen (localhost, etc):")
-    l2 = tkinter.Label(
+    l1 = Label(text="Ingrese el servidor de origen (localhost, etc):")
+    l2 = Label(
         text="Ingrese el nombre de la base de datos de origen: ")
-    l3 = tkinter.Label(text="Ingrese el usuario: ")
-    l4 = tkinter.Label(text="Ingrese la contraseña:")
-    lpsql = tkinter.Label(text="PSQL DATA")
+    l3 = Label(text="Ingrese el usuario: ")
+    l4 = Label(text="Ingrese la contraseña:")
+    lpsql = Label(text="PSQL DATA")
     lpsql.config(font=('sans', 20))
-    l5 = tkinter.Label(text="Ingrese el servidor de destino (localhost, etc):")
-    l6 = tkinter.Label(
+    l5 = Label(text="Ingrese el servidor de destino (localhost, etc):")
+    l6 = Label(
         text="Ingrese el nombre de la base de datos de destino: ")
-    l7 = tkinter.Label(text="Ingrese el usuario administrador de la base:")
-    l8 = tkinter.Label(text="Ingrese la contraseña: ")
+    l7 = Label(text="Ingrese el usuario administrador de la base:")
+    l8 = Label(text="Ingrese la contraseña: ")
 
     # Setting up the grid SSMS
     lssms.grid(row=0, column=0)
